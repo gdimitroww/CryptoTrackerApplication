@@ -1,4 +1,4 @@
-# CryptoTracker ( Works only on macOS ) 
+# CryptoTracker
 
 A desktop application built with C# and Avalonia UI that allows users to track cryptocurrency prices in real-time.
 
