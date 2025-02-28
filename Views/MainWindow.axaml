@@ -74,7 +74,24 @@
                   IsReadOnly="True"
                   BorderThickness="1"
                   BorderBrush="#FF1493"
-                  CornerRadius="0">
+                  CornerRadius="0"
+                  SelectionMode="Single"
+                  CanUserSortColumns="True"
+                  GridLinesVisibility="All"
+                  HorizontalGridLinesBrush="#3D3D3D"
+                  VerticalGridLinesBrush="#3D3D3D">
+            <DataGrid.Styles>
+                <Style Selector="DataGridRow">
+                    <Setter Property="Background" Value="#2D2D2D"/>
+                    <Setter Property="Cursor" Value="Hand"/>
+                </Style>
+                <Style Selector="DataGridRow:pointerover">
+                    <Setter Property="Background" Value="#3D3D3D"/>
+                </Style>
+                <Style Selector="DataGridRow:selected">
+                    <Setter Property="Background" Value="#4a3c42"/>
+                </Style>
+            </DataGrid.Styles>
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Name" Width="1.2*">
                     <DataGridTemplateColumn.CellTemplate>
@@ -140,10 +157,31 @@
                 Margin="20,0,20,20"
                 BorderThickness="1"
                 BorderBrush="#FF1493">
-            <TextBlock Name="LastUpdateLabel" 
-                      Margin="10,5"
-                      Text="Last Updated: Never"
-                      Foreground="#FF69B4"/>
+            <Grid ColumnDefinitions="*, Auto, Auto">
+                <TextBlock Name="LastUpdateLabel" 
+                          Grid.Column="0"
+                          Margin="10,5"
+                          Text="Last Updated: Never"
+                          Foreground="#FF69B4"/>
+                          
+                <Button Name="AddButton"
+                        Grid.Column="1"
+                        Content="Add"
+                        Margin="5"
+                        Padding="15,5"
+                        Background="#32CD32"
+                        Foreground="White"
+                        Click="OnAddButtonClick"/>
+                        
+                <Button Name="RemoveButton"
+                        Grid.Column="2"
+                        Content="Remove"
+                        Margin="5"
+                        Padding="15,5"
+                        Background="#FF4500"
+                        Foreground="White"
+                        Click="OnRemoveButtonClick"/>
+            </Grid>
         </Border>
     </Grid>
 </Window> 
